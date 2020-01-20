@@ -29,7 +29,7 @@ const AboutUs = () => {
         <Divider />
       </Grid>
       <Grid item xs={10} md={3}>
-        <Typography variant="p" component="body1" gutterBottom>
+        <Typography variant="body1" component="p" gutterBottom>
           {` Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           commodi explicabo nam ea saepe, amet necessitatibus ad cum optio
           adipisci perferendis at, veniam molestias? 

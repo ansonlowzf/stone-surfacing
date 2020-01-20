@@ -34,20 +34,19 @@ const IndexPage = () => {
       />
 
       <AboutUs />
+
       {/* Video of factory showing slab, walking of factory */}
       <Hero
-        title={`Stone Surfacing`}
-        subtitle={`Supply of Stone Slab`}
-        buttonName={`Explore`}
+        // title={`Stone Surfacing`}
+        // subtitle={`Supply of Stone Slab`}
+        // buttonName={`Explore`}
         imageUrl={data.placeholderImage.childImageSharp.fluid}
       />
 
       <Product />
 
-      {/* Contact */}
       <ContactUs />
 
-      {/* FAQ */}
       <Faq />
     </Layout>
   )

@@ -27,8 +27,8 @@ const IndexPage = () => {
       <SEO title="Home" />
       {/* factory entrance photo */}
       <Hero
-        title={`Stone Surfacing`}
-        subtitle={`Supply of Stone Slab`}
+        title={`Wholesales Stone Surfacing`}
+        subtitle={`Specializing in Supplying Quartz Stone Slabs`}
         buttonName={`Explore`}
         imageUrl={data.placeholderImage.childImageSharp.fluid}
       />

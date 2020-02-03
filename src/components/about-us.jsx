@@ -30,20 +30,11 @@ const AboutUs = () => {
       </Grid>
       <Grid item xs={10} md={3}>
         <Typography variant="body1" component="p" gutterBottom>
-          {` Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          commodi explicabo nam ea saepe, amet necessitatibus ad cum optio
-          adipisci perferendis at, veniam molestias? 
-          
-          Vitae sequi sint vero nemo
-          aliquam. Repellendus aliquid illum veniam vitae officiis, porro
-          distinctio? Ut odio accusantium, consequuntur quia laborum ad quos
-          qui. Modi enim nesciunt qui nostrum eveniet ab, esse officiis
-          necessitatibus ipsa eos recusandae. 
-          
-          Doloribus dignissimos minus sed
-          maxime earum id fugit praesentium blanditiis, omnis quisquam tempore
-          velit possimus eius odio porro corrupti iste rerum officiis nostrum
-          quas aut repellendus voluptatem. Cum, animi cumque?`}
+          {`XYZ Stone Marketing is a stone surfacing supply company. We supply quartz stone (AKA quartz surface), marble, and granite`}
+        </Typography>
+        <br />
+        <Typography variant="body1" component="p" gutterBottom>
+          {`XYZ Stone Marketing is a stone surfacing supply company. We supply quartz stone (AKA quartz surface), marble, and granite`}
         </Typography>
       </Grid>
     </Grid>

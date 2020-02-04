@@ -30,11 +30,11 @@ const AboutUs = () => {
       </Grid>
       <Grid item xs={10} md={3}>
         <Typography variant="body1" component="p" gutterBottom>
-          {`XYZ Stone Marketing is a stone surfacing supply company. We supply quartz stone (AKA quartz surface), marble, and granite`}
+          {`XYZ Stone is a stone slab trading company. We import stone slab from China and supply to stone's factory in Malaysia. Welcome to OEM and develop your stone brand.`}
         </Typography>
         <br />
         <Typography variant="body1" component="p" gutterBottom>
-          {`XYZ Stone Marketing is a stone surfacing supply company. We supply quartz stone (AKA quartz surface), marble, and granite`}
+          {`We mainly import quartz stone with more than 1000 slabs and 80 colours in stock. Welcome to visit our warehouse to choose your favourite colour`}
         </Typography>
       </Grid>
     </Grid>

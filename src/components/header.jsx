@@ -1,39 +1,48 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React, { useState } from "react"
-
-import { makeStyles } from "@material-ui/core/styles"
+import BackToTop from "../components/BackToTop"
+import HideHeaderOnScroll from "../components/HideHeaderOnScroll"
 import {
   AppBar,
+  Container,
+  Drawer,
   Hidden,
-  Toolbar,
   IconButton,
   List,
   ListItem,
   ListItemText,
-  SwipeableDrawer,
-  Container,
+  Toolbar,
+  Fab,
 } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import { Home, Menu, KeyboardArrowUp } from "@material-ui/icons"
+import { Link } from "gatsby"
 
-import { Home, Menu } from "@material-ui/icons"
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  title: {
-    flexGrow: 1,
+  navbarSpace: {
+    justifyContent: `space-between`,
   },
-  drawer: {
+  list: {
     width: 250,
+  },
+  navLinkFlex: {
+    display: "flex",
+  },
+  mainLinkText: {
+    textDecoration: "none",
+    color: `white`,
   },
   linkText: {
     textDecoration: "none",
-    color: `black`,
   },
-})
+  drawerText: {
+    color: theme.palette.primary.main,
+  },
+}))
 
-const siteLinks = [
+const NavLinks = [
   { title: `ABOUT US`, path: `/about-us` },
   { title: `PRODUCT`, path: `/product` },
   { title: `CONTACT US`, path: `/contact-us` },
@@ -42,10 +51,10 @@ const siteLinks = [
 
 const Header = () => {
   const classes = useStyles()
+
   const [state, setState] = useState({
     right: false,
   })
-
   const toggleDrawer = (side, open) => event => {
     if (
       event &&
@@ -58,18 +67,18 @@ const Header = () => {
     setState({ ...state, [side]: open })
   }
 
-  const sideDrawer = side => (
+  const drawer = side => (
     <div
-      className={classes.drawer}
+      className={classes.list}
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <List component="nav" aria-labelledby="side drawer">
-        {siteLinks.map(({ title, path }) => (
+      <List component="nav" aria-label="side drawer">
+        {NavLinks.map(({ title, path }) => (
           <Link to={path} key={title} className={classes.linkText}>
             <ListItem button>
-              <ListItemText primary={title} />
+              <ListItemText primary={title} className={classes.drawerText} />
             </ListItem>
           </Link>
         ))}
@@ -78,13 +87,9 @@ const Header = () => {
   )
 
   const MainNav = (
-    <List
-      component="nav"
-      aria-labelledby="main navigation"
-      style={{ display: `flex` }}
-    >
-      {siteLinks.map(({ title, path }) => (
-        <Link to={path} key={title} className={classes.linkText}>
+    <List component="nav" aria-label="main" className={classes.navLinkFlex}>
+      {NavLinks.map(({ title, path }) => (
+        <Link to={path} key={title} className={classes.mainLinkText}>
           <ListItem button>
             <ListItemText primary={title} />
           </ListItem>
@@ -94,59 +99,55 @@ const Header = () => {
   )
 
   return (
-    <header className={classes.root}>
-      <AppBar position="sticky">
-        <Container maxWidth="lg">
-          <Toolbar style={{ justifyContent: `space-between` }}>
-            <Link to="/">
-              <IconButton
-                edge="start"
-                aria-label="home"
-                className={classes.title}
-              >
-                <Home fontSize="large" />
-              </IconButton>
-            </Link>
+    <>
+      <div className={classes.root}>
+        <HideHeaderOnScroll>
+          <AppBar>
+            <Container maxWidth="lg">
+              <Toolbar component="nav" className={classes.navbarSpace}>
+                <Link to="/">
+                  <IconButton>
+                    <Home fontSize="large" style={{ color: `white` }} />
+                  </IconButton>
+                </Link>
 
-            <Hidden mdUp>
-              <IconButton
-                edge="end"
-                aria-label="drawer menu"
-                onClick={toggleDrawer("right", true)}
-              >
-                <Menu />
-              </IconButton>
-            </Hidden>
+                <Hidden mdUp>
+                  <IconButton
+                    aria-label="open drawer menu"
+                    edge="end"
+                    onClick={toggleDrawer("right", true)}
+                  >
+                    <Menu style={{ color: `white` }} />
+                  </IconButton>
+                </Hidden>
+                {/* ====== Hide Main Navigation on tablet & mobile ====== */}
+                <Hidden smDown>{MainNav}</Hidden>
+                {/* ====== End - Hide Top Navigation on tablet & mobile ====== */}
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </HideHeaderOnScroll>
+        <Toolbar id="back-to-top-anchor" />
+      </div>
 
-            <Hidden smDown>
-              <nav>{MainNav}</nav>
-            </Hidden>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <BackToTop>
+        <Fab color="secondary" size="large" aria-label="scroll back to top">
+          <KeyboardArrowUp />
+        </Fab>
+      </BackToTop>
 
-      <nav aria-label="side">
-        <Hidden mdUp>
-          <SwipeableDrawer
-            anchor="right"
-            open={state.right}
-            onOpen={toggleDrawer("right", true)}
-            onClose={toggleDrawer("right", false)}
-          >
-            {sideDrawer("right")}
-          </SwipeableDrawer>
-        </Hidden>
-      </nav>
-    </header>
+      <Hidden mdUp>
+        <Drawer
+          anchor="right"
+          open={state.right}
+          onClose={toggleDrawer("right", false)}
+          onOpen={toggleDrawer("right", true)}
+        >
+          {drawer("right")}
+        </Drawer>
+      </Hidden>
+    </>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

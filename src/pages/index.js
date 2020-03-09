@@ -27,8 +27,8 @@ const IndexPage = () => {
       <SEO title="Home" />
       {/* factory entrance photo */}
       <Hero
-        title={`Wholesales Stone Slab in Malaysia`}
-        subtitle={`Supplying Quartz Stone, Granite & Marble`}
+        title={`Wholesales Quartz Stone Slab in Malaysia`}
+        subtitle={`More than 60 colours in stock`}
         buttonName={`Explore`}
         imageUrl={data.placeholderImage.childImageSharp.fluid}
       />

@@ -5,8 +5,8 @@ import { useScrollTrigger, Zoom } from "@material-ui/core"
 const useStyles = makeStyles(theme => ({
   root: {
     position: "fixed",
-    bottom: theme.spacing(10),
-    right: theme.spacing(10),
+    bottom: theme.spacing(7),
+    right: theme.spacing(7),
     zIndex: 999,
   },
 }))

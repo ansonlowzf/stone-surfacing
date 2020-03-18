@@ -43,10 +43,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const NavLinks = [
-  { title: `ABOUT US`, path: `/about-us` },
-  { title: `PRODUCT`, path: `/product` },
-  { title: `CONTACT US`, path: `/contact-us` },
-  { title: `FAQ`, path: `/faq` },
+  { title: `CAESARSTONE`, path: `/caesarstone` },
+  { title: `OEM QUARTZ STONE`, path: `/quartz stone` },
 ]
 
 const Header = () => {

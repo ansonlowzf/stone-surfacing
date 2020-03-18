@@ -1,6 +1,6 @@
 import { Container } from "@material-ui/core"
 import React from "react"
-import DisplayStone from "../components/display-stone"
+import DisplayStone from "../components/DisplayStone"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 

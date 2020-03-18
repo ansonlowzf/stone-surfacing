@@ -34,7 +34,6 @@ const Faq = () => {
 
   return (
     <>
-      <SEO title="FAQ" />
       <Grid container justify="center" className={classes.sectionMarginBottom}>
         <Grid item xs={11} md={5}>
           <Typography

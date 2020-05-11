@@ -1,16 +1,5 @@
-import { Container } from "@material-ui/core"
-import React from "react"
-import DisplayStone from "../components/DisplayStone"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import * as React from "react"
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Caesarstone Slab" />
-    <Container maxWidth="lg">
-      <DisplayStone />
-    </Container>
-  </Layout>
-)
+const CaesarstonePage = () => <h1>Caesarstone</h1>
 
-export default SecondPage
+export default CaesarstonePage

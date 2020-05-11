@@ -2,11 +2,42 @@ import React from "react"
 import { Link } from "gatsby"
 
 import BackgroundImage from "gatsby-background-image"
-import { Button, Grid, Typography } from "@material-ui/core"
+import { Button, Grid, Typography, makeStyles } from "@material-ui/core"
+
+const useStyles = makeStyles(theme => ({
+  sectionMarginBottom: {
+    marginBottom: theme.spacing(12),
+  },
+  heroFilterLayer: {
+    width: `100%`,
+    height: `100%`,
+    backgroundColor: `rgba(0, 0, 0, 0.5)`,
+  },
+  titleText: {
+    color: theme.palette.common.white,
+  },
+  subtitleText: {
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(2),
+  },
+  linkText: {
+    textDecoration: `none`,
+  },
+  buttonColor: {
+    backgroundColor: theme.palette.warning.main,
+  },
+  buttonText: {
+    padding: `0.75em 1.5em`,
+    fontWeight: `bold`,
+    letterSpacing: `1.5px`,
+  },
+}))
 
 const Hero = ({ title, subtitle, buttonName, imageUrl }) => {
+  const classes = useStyles()
+
   return (
-    <div className="section-margin--bottom">
+    <div className={classes.sectionMarginBottom}>
       <BackgroundImage
         Tag="section"
         fluid={imageUrl}
@@ -17,11 +48,7 @@ const Hero = ({ title, subtitle, buttonName, imageUrl }) => {
         }}
       >
         <Grid
-          style={{
-            width: `100%`,
-            height: `100%`,
-            backgroundColor: `rgba(0, 0, 0, 0.5)`,
-          }}
+          className={classes.heroFilterLayer}
           container
           justify="center"
           alignItems="center"
@@ -31,7 +58,7 @@ const Hero = ({ title, subtitle, buttonName, imageUrl }) => {
               variant="h2"
               component="h1"
               gutterBottom
-              style={{ color: `white` }}
+              className={classes.titleText}
             >
               {title}
             </Typography>
@@ -39,24 +66,16 @@ const Hero = ({ title, subtitle, buttonName, imageUrl }) => {
               variant="h4"
               component="p"
               gutterBottom
-              style={{ color: `white`, marginBottom: `1em` }}
+              className={classes.subtitleText}
             >
               {subtitle}
             </Typography>
-            <Link
-              to="/product/mixed-flower-honey"
-              style={{ textDecoration: `none` }}
-            >
+            <Link to="/product/mixed-flower-honey" className={classes.linkText}>
               <Button
                 variant="contained"
                 aria-label="product page"
-                color="secondary"
                 size="large"
-                style={{
-                  padding: `0.75em 1.5em`,
-                  fontWeight: `bold`,
-                  letterSpacing: `1.5px`,
-                }}
+                className={`${classes.buttonText} ${classes.buttonColor}`}
               >
                 {buttonName} &rarr;
               </Button>

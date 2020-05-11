@@ -1,16 +1,16 @@
 import { Grid, Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import React from "react"
+import { makeStyles } from "@material-ui/core"
+import * as React from "react"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   bottomMargin: {
-    marginBottom: `3em`,
+    marginBottom: theme.spacing(5),
   },
   underlineText: {
     borderBottom: `2px solid #ddd`,
-    paddingBottom: `0.375em`,
+    paddingBottom: theme.spacing(2),
   },
-})
+}))
 
 const Heading2 = ({ title, path }) => {
   const classes = useStyles()

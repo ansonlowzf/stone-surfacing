@@ -4,13 +4,19 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/Hero"
-import Product from "../components/Products"
 import ContactUs from "../components/ContactUs"
 import Faq from "../components/Faq"
 import Heading2 from "../components/Heading2"
-import { Container, Typography } from "@material-ui/core"
+import { Container, Typography, makeStyles } from "@material-ui/core"
+
+const useStyles = makeStyles(theme => ({
+  sectionMargin: {
+    marginBottom: theme.spacing(12),
+  },
+}))
 
 const IndexPage = () => {
+  const classes = useStyles()
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "slab photo 1.jpg" }) {
@@ -26,7 +32,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {/* factory entrance photo */}
       <Hero
         title={`Wholesales Quartz Stone Slab in Malaysia`}
         subtitle={`More than 82 colours available`}
@@ -35,7 +40,7 @@ const IndexPage = () => {
       />
 
       <Heading2 title="About Us" />
-      <Container maxWidth="xs" className="section-margin--bottom">
+      <Container maxWidth="xs" className={classes.sectionMargin}>
         <Typography component="p" variant="body1" paragraph>
           {`XYZ Stone is a stone slab trading company. We import stone slab from USA, China and supply to stone's mansion, stone's fabricator and stone's factory in Malaysia.`}
         </Typography>
@@ -54,8 +59,6 @@ const IndexPage = () => {
         // buttonName={`Explore`}
         imageUrl={data.placeholderImage.childImageSharp.fluid}
       />
-
-      <Product />
 
       <Heading2 title="Contact Us" />
       <ContactUs />

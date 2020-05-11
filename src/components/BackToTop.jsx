@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { useScrollTrigger, Zoom } from "@material-ui/core"
 
@@ -7,17 +7,14 @@ const useStyles = makeStyles(theme => ({
     position: "fixed",
     bottom: theme.spacing(7),
     right: theme.spacing(7),
-    zIndex: 999,
+    zIndex: 99,
   },
 }))
 
 const BackToTop = ({ children }) => {
   const classes = useStyles()
 
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  })
+  const trigger = useScrollTrigger()
 
   const handleClick = event => {
     const anchor = (event.target.ownerDocument || document).querySelector(
